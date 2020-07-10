@@ -1,0 +1,50 @@
+! 1) Settings used in the main program.
+Main:numberOfEvents = 200000         ! number of events to generate
+Main:timesAllowErrors = 3          ! how many aborts before run stops
+
+! 2) Settings related to output in init(), next() and stat().
+Init:showChangedSettings = on      ! list changed settings
+Init:showChangedParticleData = off ! list changed particle data
+Next:numberCount = 100             ! print message every n events
+Next:numberShowInfo = 1            ! print event information n times
+Next:numberShowProcess = 1         ! print process record n times
+Next:numberShowEvent = 0           ! print event record n times
+
+
+! 3) Beam parameter settings. Values below agree with default ones.
+Beams:idA = 2212                   ! first beam, p = 2212, pbar = -2212
+Beams:idB = 2212                   ! second beam, p = 2212, pbar = -2212
+Beams:eCM = 7000.                  ! CM energy of collision
+
+! 4) Settings for the hard-process generation.
+HardQCD:all = on                   ! switch on all QCD jet + jet processes
+PhaseSpace:pTHatMin = 2.          ! minimal pT scale in process
+
+
+! 5) Switch on/off the key event generation steps.
+PartonLevel:MPI = off             ! no multiparton interactions
+!PartonLevel:ISR = off             ! no initial-state radiation
+PartonLevel:FSR = oN              ! final-state radiation
+!HadronLevel:Hadronize = on        ! hadronization
+HadronLevel:all = on            
+Charmonium:all = on
+PartonLevel:all = on
+!SecondHard:TwoJets = on
+!HadronScatter:mode = on
+
+
+! 4) Set up properties of the GeneralResonance and its decay channels.
+! id:all = name antiName spinType chargeType colType m0 mWidth mMin mMax tau0
+!999999:all = GeneralResonance void 1 0 0 500. 1. 0. 0. 0.
+! id:addChannel = onMode bRatio meMode product1 product2 ...
+! Note: sum of branching ratios automatically rescaled to 1.
+! Current channels illustrative only; insert your own decay list.
+!999999:addChannel = 1 0.15 101 1 -1   !  -> d dbar
+!999999:addChannel = 1 0.15 101 6 -6   !  -> t tbar
+!999999:addChannel = 1 0.15 101 15 -15 !  -> tau- tau+
+!999999:addChannel = 1 1.15 101 21 21  !  -> g g
+!999999:addChannel = 1 1.15 101 22 22  !  -> gamma gamma
+
+! 5) Tell that also long-lived should decay.
+!412:mayDecay   = true                    ! D0
+!-104211:mayDecay = true ! D0_star_bar
