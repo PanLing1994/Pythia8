@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 with open("out_10.log","r") as f:
     msms = f.readlines()
     f.close()
