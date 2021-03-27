@@ -46,15 +46,15 @@ const Int_t n3 = 10;
    mg->Add(gr3);
 
 
-auto leg = new TLegend(.1,.7,.3,.9,"molecule structure #Sigma_{c}#bar{D}");
+auto leg = new TLegend(.1,.7,.3,.9,"molecule structure #Sigma_{c}^{0}#bar{D}^{0}");
 leg->SetFillColor(0);
-leg->AddEntry(gr1,"#0.5m_pi");
-leg->AddEntry(gr2,"#m_pi");
-leg->AddEntry(gr3,"#2m_pi");
+leg->AddEntry(gr1,"0.5m_{#pi}");
+leg->AddEntry(gr2,"m_{#pi}");
+leg->AddEntry(gr3,"2m_{#pi}");
 
 mg->Draw("ap");
-mg->GetXaxis()->SetTitle("pT [GeV]");
-mg->GetYaxis()->SetTitle("d#sigma/dpT [nb/GeV]");
+mg->GetXaxis()->SetTitle("p_{T} [GeV/c]");
+mg->GetYaxis()->SetTitle("d#sigma [nb GeV^{-1} c]");
 
 leg->Draw();
 }

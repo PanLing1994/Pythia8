@@ -16,7 +16,7 @@ void multigraph()
 
   const Int_t n1 = 10;
    Double_t px1[] = {0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,10,14};
-   Double_t py1[] = {0.019,0.023,0.01,0.005,0.0026,0.00156,0.0009,0.0004,0.0002,0.000024};
+   Double_t py1[] = {0.0074,0.0082,0.0023,0.001,0.00057,0.00023,0.00014,0.000054,0.00002,0.000002};
    Double_t ex1[] = {0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,2,2};
    Double_t ey1[] = {0,0,0,0,0,0,0,0,0,0};
    auto gr1 = new TGraphErrors(n1,px1,py1,ex1,ey1);
@@ -27,7 +27,7 @@ void multigraph()
 
 const Int_t n2 = 10;
    Double_t px2[] = {0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,10,14};
-   Double_t py2[] = {0.12,0.138,0.06,0.03,0.015,0.0094,0.0055,0.0028,0.0012,0.00014};
+   Double_t py2[] = {0.03,0.036,0.0092,0.004,0.0023,0.00091,0.00055,0.00022,0.000085,0.0000077};
    Double_t ex2[] = {0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,2,2};
    Double_t ey2[] = {0,0,0,0,0,0,0,0,0,0};
    auto gr2 = new TGraphErrors(n2,px2,py2,ex2,ey2);
@@ -37,7 +37,7 @@ const Int_t n2 = 10;
 
 const Int_t n3 = 10;
    Double_t px3[] = {0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,10,14};
-   Double_t py3[] = {0.62,0.78,0.34,0.164,0.088,0.05,0.031,0.016,0.0065,0.0008};
+   Double_t py3[] = {0.25,0.302,0.077,0.04,0.019,0.0076,0.0046,0.0018,0.00072,0.000065};
    Double_t ex3[] = {0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,2,2};
    Double_t ey3[] = {0,0,0,0,0,0,0,0,0,0};
    auto gr3 = new TGraphErrors(n3,px3,py3,ex3,ey3);
@@ -46,15 +46,15 @@ const Int_t n3 = 10;
    mg->Add(gr3);
 
 
-auto leg = new TLegend(.1,.7,.3,.9,"molecule structure #Sigma_{c}^{*0}#bar{D}*^{0}");
+auto leg = new TLegend(.1,.7,.3,.9,"molecule structure #Sigma_{c}^{*++}D*^{-}");
 leg->SetFillColor(0);
 leg->AddEntry(gr1,"0.5m_{#pi}");
 leg->AddEntry(gr2,"m_{#pi}");
-leg->AddEntry(gr3,"m_{#pi}");
+leg->AddEntry(gr3,"2m_{#pi}");
 
 mg->Draw("ap");
-mg->GetXaxis()->SetTitle("p_{T} [GeV]");
-mg->GetYaxis()->SetTitle("d#sigma [nb GeV^{-1} c]");
+mg->GetXaxis()->SetTitle("p_{T} [GeV/c]");
+mg->GetYaxis()->SetTitle("d#sigma/dp_{T} [nb GeV^{-1} c]");
 
 leg->Draw();
 }
